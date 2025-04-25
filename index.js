@@ -3,10 +3,9 @@ import express from "express";
 import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
-import { createServerlessExpressMiddleware } from "@vendia/serverless-express";
 
-import authRoutes from "../routes/auth.js";
-import markersRoutes from "../routes/markers.js";
+import authRoutes from "./routes/auth.js";
+import markersRoutes from "./routes/markers.js";
 
 dotenv.config();
 
@@ -29,5 +28,6 @@ const supabase = createClient(
 app.use("/auth", authRoutes(supabase));
 app.use("/api/markers", markersRoutes(supabase));
 
-// 👇 Wrap and export for Vercel
-export default createServerlessExpressMiddleware({ app });
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
