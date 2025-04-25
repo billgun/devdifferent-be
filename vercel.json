@@ -1,9 +1,12 @@
 {
   "version": 2,
   "functions": {
-    "api/index.ts": {
-      "runtime": "nodejs18.x"
+    "api/server.js": {
+      "runtime": "nodejs"
     }
   },
-  "routes": [{ "src": "/api/(.*)", "dest": "/api/index.ts" }]
+  "routes": [
+    { "src": "/auth/(.*)", "dest": "/api/server.js" },
+    { "src": "/api/markers/(.*)", "dest": "/api/server.js" }
+  ]
 }
