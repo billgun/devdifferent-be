@@ -14,7 +14,7 @@ const port = process.env.PORT || 3001;
 // ✅ Allow requests from your frontend
 app.use(
   cors({
-    origin: process.env.BACKEND_URL, // your Next.js origin
+    origin: process.env.FRONTEND_URL, // your Next.js origin
     credentials: true, // optional: allow cookies if needed
   })
 );

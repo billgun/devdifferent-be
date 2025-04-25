@@ -10,7 +10,7 @@ export default function authRoutes(supabase) {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: process.env.BACKEND_URL, // frontend redirect after success
+        emailRedirectTo: process.env.FRONTEND_URL, // frontend redirect after success
       },
     });
 

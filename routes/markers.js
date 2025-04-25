@@ -17,8 +17,6 @@ export default function markersRoutes(supabase) {
 
     const user_id = req.user.id; // Access user from the middleware
 
-    console.log(user_id);
-
     // Insert new marker into the database
     const { data, error } = await supabase
       .from("user_markers")
