@@ -30,6 +30,4 @@ const supabase = createClient(
 app.use("/auth", authRoutes(supabase));
 app.use("/api/markers", markersRoutes(supabase));
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+export default createServerlessExpressMiddleware({ app });
