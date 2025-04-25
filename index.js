@@ -14,7 +14,7 @@ const port = process.env.PORT || 3001;
 // ✅ Allow requests from your frontend
 app.use(
   cors({
-    origin: "http://localhost:3000", // your Next.js origin
+    origin: process.env.BACKEND_URL, // your Next.js origin
     credentials: true, // optional: allow cookies if needed
   })
 );
@@ -23,7 +23,7 @@ app.use(express.json());
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_ANON_KEY
+  process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
 // Mount the auth router at /auth
