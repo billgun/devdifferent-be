@@ -1,12 +1,13 @@
 {
   "version": 2,
   "functions": {
-    "api/server.js": {
-      "runtime": "nodejs"
+    "api/index.js": {
+      "runtime": "nodejs20"
     }
   },
   "routes": [
-    { "src": "/auth/(.*)", "dest": "/api/server.js" },
-    { "src": "/api/markers/(.*)", "dest": "/api/server.js" }
+    { "src": "/auth/(.*)", "dest": "/api/index.js" },
+    { "src": "/api/markers/(.*)", "dest": "/api/index.js" },
+    { "src": "/api/(.*)", "dest": "/api/index.js" }
   ]
 }
